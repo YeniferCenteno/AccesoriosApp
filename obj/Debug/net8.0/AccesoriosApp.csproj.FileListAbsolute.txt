@@ -1,0 +1,7 @@
+C:\Users\yenif\source\repos\Apps\AccesoriosApp\obj\Debug\net8.0\AccesoriosApp.csproj.AssemblyReference.cache
+C:\Users\yenif\source\repos\Apps\AccesoriosApp\obj\Debug\net8.0\AccesoriosApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yenif\source\repos\Apps\AccesoriosApp\obj\Debug\net8.0\AccesoriosApp.AssemblyInfoInputs.cache
+C:\Users\yenif\source\repos\Apps\AccesoriosApp\obj\Debug\net8.0\AccesoriosApp.AssemblyInfo.cs
+C:\Users\yenif\source\repos\Apps\AccesoriosApp\obj\Debug\net8.0\AccesoriosApp.csproj.CoreCompileInputs.cache
+C:\Users\yenif\source\repos\Apps\AccesoriosApp\obj\Debug\net8.0\AccesoriosApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\yenif\source\repos\Apps\AccesoriosApp\obj\Debug\net8.0\AccesoriosApp.sourcelink.json
