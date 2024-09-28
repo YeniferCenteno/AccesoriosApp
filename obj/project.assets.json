@@ -260,11 +260,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yenif\\source\\repos\\Apps\\AccesoriosApp\\AccesoriosApp.csproj",
+      "projectUniqueName": "C:\\Users\\yenif\\source\\repos\\Modulos\\AccesoriosApp.csproj",
       "projectName": "AccesoriosApp",
-      "projectPath": "C:\\Users\\yenif\\source\\repos\\Apps\\AccesoriosApp\\AccesoriosApp.csproj",
+      "projectPath": "C:\\Users\\yenif\\source\\repos\\Modulos\\AccesoriosApp.csproj",
       "packagesPath": "C:\\Users\\yenif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yenif\\source\\repos\\Apps\\AccesoriosApp\\obj\\",
+      "outputPath": "C:\\Users\\yenif\\source\\repos\\Modulos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

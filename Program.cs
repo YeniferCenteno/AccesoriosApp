@@ -11,7 +11,10 @@ builder.Services.AddScoped(o => new HttpClient
 {
     BaseAddress = new Uri("http://localhost:8080/")
 });
+
 builder.Services.AddScoped<AuthServices>();
+builder.Services.AddScoped<AccesorioService>();
+builder.Services.AddScoped<TipoDeAccesorioService>();
 
 var app = builder.Build();
 

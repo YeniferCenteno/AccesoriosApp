@@ -1,0 +1,90 @@
+﻿@page "/accesorios"
+@using AccesoriosApp.DTOs
+@using AccesoriosApp.Services
+@rendermode InteractiveServer
+@inject AccesorioService accesorioService;
+@inject IJSRuntime JSRuntime
+
+<h3>Accesorios</h3>
+
+<a href="/accesorios/guardar" class="btn btn-primary">Agregar Accesorio</a>
+
+@if (accesorios == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo de accesorio</th>
+                <th>Descripción</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var accesorio in accesorios)
+            {
+                <tr>
+                    <td>@accesorio.Nombre</td>
+                    <td>@accesorio.TipoDeAccesorio.Nombre</td>
+                    <td>@accesorio.Descripcion</td>
+                    <td>
+                        <div>
+                            <img style="width:200px" src="@accesorio.UrlFoto" />
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="() => ConfirmarEliminarAccesorio(accesorio.Id)">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Accesorio> accesorios;
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var res_accesorios = await accesorioService.GetAccesorios();
+            accesorios = res_accesorios.Content;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task ConfirmarEliminarAccesorio(int id)
+    {
+        // Llamar a SweetAlert2 para confirmar
+        var confirmado = await JSRuntime.InvokeAsync<bool>("confirmarEliminacion");
+        if (confirmado)
+        {
+            await EliminarAccesorio(id);
+        }
+    }
+
+    private async Task EliminarAccesorio(int id)
+    {
+        var eliminado = await accesorioService.DeleteAccesorio(id);
+        if (eliminado)
+        {
+            // Eliminar de la lista de accesorios para actualizar la vista
+            accesorios = accesorios.Where(a => a.Id != id).ToList();
+            StateHasChanged();
+            await JSRuntime.InvokeVoidAsync("mostrarToast","success", "Accesorio eliminado exitosamente.");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("mostrarToast", "error", "Ocurrio un error al eliminar el accesorio");
+        }
+    }
+}
