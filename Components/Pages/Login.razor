@@ -1,0 +1,66 @@
+﻿@page "/"
+@layout LoginLayout
+@rendermode InteractiveServer
+
+@using AccesoriosApp.Components.Layout
+@using AccesoriosApp.DTOs
+@using AccesoriosApp.Services
+
+
+<PageTitle>Login</PageTitle>
+
+<div class="login-container">
+    <div class="login-left">
+        <link href="css/style.css" rel="stylesheet" />
+        <img src="/bootstrap/acc.jfif" alt="Travelista Tours" class="side-image" />
+        <div class="welcome-text">
+            <h1>Evangeline</h1>
+        </div>
+    </div>
+
+    <div class="login-right">
+        <div class="login-form">
+            <h2>Bienvenido</h2>
+            <EditForm Model="authDTO" OnValidSubmit="login">
+                <div class="mb-3">
+                    <label class="form-label">Nombre de usuario</label>
+                    <InputText class="form-control" @bind-Value="authDTO.login" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <InputText class="form-control" type="password" @bind-Value="authDTO.clave" />
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="mt-3 alert alert-danger">@errorMessage</div>
+                }
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+
+@inject AuthServices authService;
+@inject NavigationManager navigationManager;
+@code {
+    private AuthDTO authDTO = new AuthDTO();
+    private string errorMessage;
+
+    private async Task login()
+    {
+        Console.WriteLine("Hola");
+        var token = await authService.Login(authDTO);
+        Console.WriteLine(token);
+        if (string.IsNullOrEmpty(token.token))
+        {
+            errorMessage = "Credenciales incorrectas";
+            return;
+        }
+
+        await authService.SetToken(token.token);
+        navigationManager.NavigateTo("/weather");
+    }
+}
+

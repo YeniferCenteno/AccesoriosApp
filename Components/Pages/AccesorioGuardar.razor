@@ -1,0 +1,97 @@
+﻿@page "/accesorios/guardar"
+@using AccesoriosApp.DTOs
+@using AccesoriosApp.Services
+@rendermode InteractiveServer
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject TipoDeAccesorioService tipoDeAccesoriosService;
+@inject AccesorioService accesorioService;
+
+<h3>Guardar Accesorio</h3>
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="mt-3 alert alert-danger">@errorMessage</div>
+}
+<EditForm Model="@accesorio" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <InputText id="nombre" class="form-control" @bind-Value="accesorio.Nombre" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="tipoDeAccesorio" class="form-label">Tipo de Accesorio:</label>
+        <InputSelect id="tipoDeAccesorio" @bind-Value="accesorio.TipoDeAccesorioId" required>
+            <option value="">Seleccione un tipo</option>
+            @foreach (var tipo in tiposDeAccesorios)
+            {
+                <option value="@tipo.Id">@tipo.Nombre</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción:</label>
+        <InputTextArea id="descripcion" class="form-control" @bind-Value="accesorio.Descripcion" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="urlFoto" class="form-label">Foto:</label>
+        <InputFile OnChange="HandleFileSelected" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Accesorio</button>
+    <NavLink href="/accesorios" class="btn btn-secondary">Cancelar</NavLink>
+</EditForm>
+
+@inject NavigationManager navigationManager;
+@code {
+    private AccesorioPayload accesorio = new AccesorioPayload();
+    private List<TipoDeAccesorio> tiposDeAccesorios = new List<TipoDeAccesorio>();
+    private string errorMessage;
+    private IBrowserFile foto;
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        foto = e.File; // Almacena el archivo seleccionado
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Cargar los tipos de accesorios desde la API
+        try
+        {
+            tiposDeAccesorios = await tipoDeAccesoriosService.GetTiposDeAccesorio();
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (foto != null)
+        {
+            // Aquí puedes subir la foto al servidor o convertirla en un formato adecuado
+            var buffer = new byte[foto.Size];
+            await foto.OpenReadStream().ReadAsync(buffer);
+
+            // Opcional: Puedes enviar los datos del accesorio y la foto a la API
+            // Lógica para enviar accesorio y archivo a la API (HttpClient)
+            var formData = new MultipartFormDataContent();
+            formData.Add(new StringContent(accesorio.Nombre), "nombre");
+            formData.Add(new StringContent(accesorio.Descripcion), "descripcion");
+            formData.Add(new ByteArrayContent(buffer), "file", foto.Name);
+            formData.Add(new StringContent(accesorio.TipoDeAccesorioId), "tipoDeAccesorioId");
+
+            var respuesta = await accesorioService.CreateAccecorio(formData);
+            Console.WriteLine("Exito");
+        }
+        navigationManager.NavigateTo("/accesorios");
+    }
+
+}

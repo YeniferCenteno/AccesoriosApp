@@ -1,7 +1,6 @@
 ﻿using AccesoriosApp.DTOs;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using System.IdentityModel.Tokens.Jwt;
-using static AccesoriosApp.DTOs.AuthDTO;
 
 namespace AccesoriosApp.Services
 {
@@ -28,7 +27,7 @@ namespace AccesoriosApp.Services
                     return result;
                 }
 
-                return null;
+            return new LoginResponse() { token = "" };
             }
             public async Task SetToken(string token)
             {
