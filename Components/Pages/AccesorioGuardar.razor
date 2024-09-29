@@ -86,10 +86,9 @@
             formData.Add(new StringContent(accesorio.Nombre), "nombre");
             formData.Add(new StringContent(accesorio.Descripcion), "descripcion");
             formData.Add(new ByteArrayContent(buffer), "file", foto.Name);
-            formData.Add(new StringContent(accesorio.TipoDeAccesorioId), "tipoDeAccesorioId");
+            formData.Add(new StringContent(accesorio.TipoDeAccesorioId.ToString()), "tipoDeAccesorioId");
 
             var respuesta = await accesorioService.CreateAccecorio(formData);
-            Console.WriteLine("Exito");
         }
         navigationManager.NavigateTo("/accesorios");
     }

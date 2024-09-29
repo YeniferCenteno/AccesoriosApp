@@ -1,0 +1,100 @@
+﻿@page "/tipodeaccesorios"
+@using AccesoriosApp.DTOs
+@using AccesoriosApp.Services
+@rendermode InteractiveServer
+
+@inject TipoDeAccesorioService tipoDeAccesorioService;
+@inject IJSRuntime JSRuntime;
+@inject NavigationManager navigationManager;
+
+<h3>Tipo de Accesorios</h3>
+
+<a href="/tipodeaccesorio/guardar" class="btn btn-primary">Agregar Tipo de Accesorio</a>
+
+@if (tipodeaccesorios == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tipodeaccesorio in tipodeaccesorios)
+            {
+                <tr>
+                    <td>@tipodeaccesorio.Nombre</td>
+                    <td>
+                        <button class="btn btn-primary">Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="() => ConfirmarEliminar(tipodeaccesorio.Id)">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<TipoDeAccesorio> tipodeaccesorios;
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var res_tipoDeAccesorios = await tipoDeAccesorioService.GetTiposDeAccesorio();
+            tipodeaccesorios = res_tipoDeAccesorios;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+     private async Task ConfirmarEliminar(int id)
+     {
+        var confirmado = await JSRuntime.InvokeAsync<bool>("confirmarEliminacion");
+        if (confirmado)
+        {
+            await EliminarTipoDeAccesorio(id);
+        }
+    }
+
+    //Eliminar tipo de accesorio
+    private async Task EliminarTipoDeAccesorio(int id)
+    {
+        var eliminado = await tipoDeAccesorioService.DeleteTipoDeAccesorio(id);
+        if (eliminado)
+        {
+            tipodeaccesorios = tipodeaccesorios.Where(a => a.Id != id).ToList();
+            StateHasChanged();
+            await JSRuntime.InvokeVoidAsync("mostrarToast", "success", "Tipo de accesorio eliminado exitosamente.");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("mostrarToast", "error", "Ocurrio un error al eliminar el tipo de accesorio");
+        }
+    }
+
+    private void MoveToUpdate(int id)
+    {
+        navigationManager.NavigateTo($"/tipodeaccesorios/editar/{id}");
+    }
+
+    private async Task ConfirmarEditar(int id)
+    {
+        var confirmado = await JSRuntime.InvokeAsync<bool>("confirmarEliminacion");
+        if (confirmado)
+        {
+            await EliminarTipoDeAccesorio(id);
+        }
+    }
+}

@@ -1,0 +1,90 @@
+﻿@page "/accesorios/editar/{AccesorioId}"
+@using AccesoriosApp.DTOs
+@using AccesoriosApp.Services
+@rendermode InteractiveServer
+
+@inject AccesorioService accesorioService;
+@inject NavigationManager navigationManager
+
+
+<h3>Editar Accesorio</h3>
+
+@if (accesorio == null)
+{
+    <p>Cargando accesorio...</p>
+}
+else
+{
+    <EditForm Model="accesorio" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <InputText id="nombre" class="form-control" @bind-Value="accesorio.Nombre" />
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <InputTextArea id="descripcion" class="form-control" @bind-Value="accesorio.Descripcion" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <button class="btn btn-secondary" @onclick="Cancelar">Cancelar</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public string AccesorioId { get; set; }
+    private Accesorio accesorio = new Accesorio();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Llamar al servicio para obtener el accesorio por su ID
+            accesorio = await accesorioService.GetAccesorioById(Int32.Parse(AccesorioId));
+
+            if (accesorio == null)
+            {
+                // Manejar el caso en el que no se encuentre el accesorio
+                navigationManager.NavigateTo("/accesorios");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Manejar errores
+            Console.WriteLine($"Error al cargar el accesorio: {ex.Message}");
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            // Llamar al servicio para editar el accesorio
+            var success = await accesorioService.EditAccesorio(Int32.Parse(AccesorioId), accesorio);
+
+            if (success)
+            {
+                navigationManager.NavigateTo("/accesorios");
+            }
+            else
+            {
+                // Manejar errores
+                Console.WriteLine("Error al editar el accesorio.");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Manejar errores
+            Console.WriteLine($"Error al editar el accesorio: {ex.Message}");
+        }
+    }
+
+    private void Cancelar()
+    {
+        navigationManager.NavigateTo("/accesorios");
+    }
+}
+

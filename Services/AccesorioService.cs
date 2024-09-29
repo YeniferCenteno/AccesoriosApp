@@ -64,6 +64,70 @@ namespace AccesoriosApp.Services
                 throw new Exception("Ha ocurrido un error inesperado al crear accesorios.");
             }
         }
+
+        // Método para obtener un accesorio por ID
+        public async Task<Accesorio> GetAccesorioById(int accesorioId)
+        {
+            try
+            {
+                var token = await _authServices.GetToken();
+                if (string.IsNullOrEmpty(token))
+                {
+                    throw new InvalidOperationException("El token es nulo o inválido. Iniciar sesión");
+                }
+
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var accesorio = await _httpClient.GetFromJsonAsync<Accesorio>($"api/accesorios/{accesorioId}");
+
+                return accesorio;
+            }
+            catch (HttpRequestException)
+            {
+                throw new Exception("Error al obtener el accesorio. Revisar conexión a internet.");
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ha ocurrido un error inesperado al obtener el accesorio.");
+            }
+        }
+
+
+        // Método para editar un accesorio
+        public async Task<bool> EditAccesorio(int accesorioId, Accesorio accesorio)
+        {
+            try
+            {
+                var token = await _authServices.GetToken();
+                if (string.IsNullOrEmpty(token))
+                {
+                    throw new InvalidOperationException("El token es nulo o inválido. Iniciar sesión");
+                }
+                AccesorioEditar payload = new AccesorioEditar()
+                {
+                    id = accesorio.Id,
+                    nombre = accesorio.Nombre,
+                    descripcion = accesorio.Descripcion,
+                    tipoDeAccesorioId = accesorio.TipoDeAccesorio.Id,
+                    urlFoto = accesorio.UrlFoto
+                };
+
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                Console.WriteLine(accesorio.TipoDeAccesorio.Id);
+                var response = await _httpClient.PutAsJsonAsync($"api/accesorios/{accesorioId}", payload);
+
+                return response.IsSuccessStatusCode;
+            }
+            catch (HttpRequestException)
+            {
+                throw new Exception("Error al editar el accesorio. Revisar conexión a internet.");
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ha ocurrido un error inesperado al editar el accesorio.");
+            }
+        }
+
         // Método para eliminar un accesorio
         public async Task<bool> DeleteAccesorio(int accesorioId)
         {
