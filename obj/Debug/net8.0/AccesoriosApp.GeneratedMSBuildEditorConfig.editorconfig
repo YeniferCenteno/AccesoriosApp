@@ -26,8 +26,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTG9naW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/yenif/source/repos/Modulos/Components/Pages/AccesorioEliminar.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2Nlc29yaW9FbGltaW5hci5yYXpvcg==
+[C:/Users/yenif/source/repos/Modulos/Components/Pages/AccesorioEditar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2Nlc29yaW9FZGl0YXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/yenif/source/repos/Modulos/Components/Pages/AccesorioGuardar.razor]
@@ -52,6 +52,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/yenif/source/repos/Modulos/Components/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/yenif/source/repos/Modulos/Components/Pages/TipoAccesoriosPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUaXBvQWNjZXNvcmlvc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/yenif/source/repos/Modulos/Components/Pages/TipoDeAccesorioGuardar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUaXBvRGVBY2Nlc29yaW9HdWFyZGFyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/yenif/source/repos/Modulos/Components/Pages/Weather.razor]

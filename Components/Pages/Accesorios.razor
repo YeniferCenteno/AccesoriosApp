@@ -3,7 +3,8 @@
 @using AccesoriosApp.Services
 @rendermode InteractiveServer
 @inject AccesorioService accesorioService;
-@inject IJSRuntime JSRuntime
+@inject IJSRuntime JSRuntime;
+@inject NavigationManager navigationManager;
 
 <h3>Accesorios</h3>
 
@@ -22,6 +23,8 @@ else
                 <th>Tipo de accesorio</th>
                 <th>Descripción</th>
                 <th>Foto</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +38,9 @@ else
                         <div>
                             <img style="width:200px" src="@accesorio.UrlFoto" />
                         </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => MoveToUpdate(accesorio.Id)">Editar</button>
                     </td>
                     <td>
                         <button class="btn btn-danger" @onclick="() => ConfirmarEliminarAccesorio(accesorio.Id)">Eliminar</button>
@@ -86,5 +92,10 @@ else
         {
             await JSRuntime.InvokeVoidAsync("mostrarToast", "error", "Ocurrio un error al eliminar el accesorio");
         }
+    }
+
+    private void MoveToUpdate(int id)
+    {
+        navigationManager.NavigateTo($"/accesorios/editar/{id}");
     }
 }

@@ -63,10 +63,18 @@
 
     public class AccesorioPayload
     {
-        IFormFile File { get; set; } = null!;
         public string Descripcion { get; set; } = null!;
-        public string TipoDeAccesorioId { get; set; } = null!;
+        public int TipoDeAccesorioId { get; set; } = 0;
         public string Nombre { get; set; } = null!;
+        public string UrlFoto { get; set; }
     }
 
+    public class AccesorioEditar
+    {
+        public int id { get; set; }
+        public string descripcion { get; set; } = null!;
+        public int tipoDeAccesorioId { get; set; } = 0;
+        public string nombre { get; set; } = null!;
+        public string urlFoto { get; set; }
+    }
 }

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\bootstrap\back.jpg" />
+    <Content Remove="wwwroot\img\logo.jfif" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="resources\img\" />
+    <Resource Include="wwwroot\img\logo.jfif" />
   </ItemGroup>
 
 </Project>

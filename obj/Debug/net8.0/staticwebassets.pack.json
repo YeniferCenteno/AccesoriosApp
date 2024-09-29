@@ -13,16 +13,16 @@
       "PackagePath": "staticwebassets\\bootstrap\\acc.jfif"
     },
     {
-      "Id": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\back.jpg",
-      "PackagePath": "staticwebassets\\bootstrap\\back.jpg"
-    },
-    {
       "Id": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
       "Id": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\logo.jfif",
+      "PackagePath": "staticwebassets\\bootstrap\\logo.jfif"
     },
     {
       "Id": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\css\\style.css",

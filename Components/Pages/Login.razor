@@ -8,16 +8,12 @@
 
 
 <PageTitle>Login</PageTitle>
-
-<div class="login-container">
-    <div class="login-left">
+<div class="w-100 h-100 d-flex justify-content-center align-items-center">
+<div class="image-container">
+    <div class="login-left w-100 h-100">
         <link href="css/style.css" rel="stylesheet" />
-        <img src="/bootstrap/acc.jfif" alt="Travelista Tours" class="side-image" />
-        <div class="welcome-text">
-            <h1>Evangeline</h1>
-        </div>
+        <img src="img/logo.jfif" alt="" class="side-image w-100" />
     </div>
-
     <div class="login-right">
         <div class="login-form">
             <h2>Bienvenido</h2>
@@ -30,7 +26,7 @@
                     <label class="form-label">Contraseña</label>
                     <InputText class="form-control" type="password" @bind-Value="authDTO.clave" />
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
 
                 @if (!string.IsNullOrEmpty(errorMessage))
                 {
@@ -40,7 +36,7 @@
         </div>
     </div>
 </div>
-
+</div>
 
 @inject AuthServices authService;
 @inject NavigationManager navigationManager;
@@ -60,7 +56,7 @@
         }
 
         await authService.SetToken(token.token);
-        navigationManager.NavigateTo("/weather");
+        navigationManager.NavigateTo("/accesorios");
     }
 }
 
