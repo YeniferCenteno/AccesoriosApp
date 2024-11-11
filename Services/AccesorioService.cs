@@ -14,7 +14,7 @@ namespace AccesoriosApp.Services
             _authServices = authServices;
         }
 
-    public async Task<ContentResponse> GetAccesorios(){
+    public async Task<ContentResponse> GetAccesorios(int page = 0, int size = 5, string nombre = ""){
 
         try
         {
@@ -25,7 +25,7 @@ namespace AccesoriosApp.Services
             }
 
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var response = await _httpClient.GetFromJsonAsync<ContentResponse>("api/accesorios");
+                var response = await _httpClient.GetFromJsonAsync<ContentResponse>($"api/accesorios?page={page}&size={size}&nombre={nombre}");
 
                 return response;
         }

@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\img\\flores.jpg",
+      "PackagePath": "staticwebassets\\img\\flores.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AccesoriosApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -79,6 +79,17 @@
     }*/
 
 
+/* Contenedor de pantalla completa con margen superior */
+.full-screen {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea hacia la parte superior */
+    margin-top: 60%; /* Ajusta este valor para bajar el cuadro */
+}
+
+/* Contenedor principal */
 .image-container {
     width: 80vw;
     height: 80vh;
@@ -89,13 +100,15 @@
     border-radius: 50px;
 }
 
-.login-right{
-    padding:60px;
+/* Sección derecha (formulario de inicio de sesión) */
+.login-right {
+    padding: 60px;
 }
 
+/* Imagen lateral */
 .side-image {
     object-fit: cover;
-    height: 80vh;
-    border-bottom-left-radius: 50px;
+    height: 100%;
     border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
