@@ -21,7 +21,7 @@ else
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th></th>
+                <th>Acciones</th>
                 <th></th>
             </tr>
         </thead>
@@ -31,7 +31,7 @@ else
                 <tr>
                     <td>@tipodeaccesorio.Nombre</td>
                     <td>
-                        <button class="btn btn-primary">Editar</button>
+                        <button class="btn btn-primary" @onclick="() => MoveToUpdate (tipodeaccesorio.Id)" >Editar</button>
                     </td>
                     <td>
                         <button class="btn btn-danger" @onclick="() => ConfirmarEliminar(tipodeaccesorio.Id)">Eliminar</button>
@@ -84,6 +84,7 @@ else
         }
     }
 
+    //Editar tipo de accesorio
     private void MoveToUpdate(int id)
     {
         navigationManager.NavigateTo($"/tipodeaccesorios/editar/{id}");
@@ -91,7 +92,7 @@ else
 
     private async Task ConfirmarEditar(int id)
     {
-        var confirmado = await JSRuntime.InvokeAsync<bool>("confirmarEliminacion");
+        var confirmado = await JSRuntime.InvokeAsync<bool>("confirmarEditar");
         if (confirmado)
         {
             await EliminarTipoDeAccesorio(id);

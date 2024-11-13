@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccesoriosApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f917d949d40bb358bdde5aee87da01b28b0aed14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4f1b6cea51db5aa29704c54f6ed91e397bc80bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("AccesoriosApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccesoriosApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

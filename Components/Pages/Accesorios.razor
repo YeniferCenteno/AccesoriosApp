@@ -7,8 +7,14 @@
 @inject NavigationManager navigationManager;
 
 <h3>Accesorios</h3>
+<link href="css/style.css" rel="stylesheet" />
 
-<a href="/accesorios/guardar" class="btn btn-primary">Agregar Accesorio</a>
+<div class="mt-3 mb-3 d-flex gap-2">
+    <input type="text" placeholder="Buscar por nombre" @bind="nombreBuscar" class="form-control" />
+    <button class="btn-agregar btn-primary px-4 fw-normal" @onclick="() => BuscarAccesorios()">Buscar</button>
+</div>
+
+<a href="/accesorios/guardar" class="btn-agregar btn btn-primary btn-icon"><i class="fa-solid fa-plus"></i></a>
 
 @if (accesorios == null)
 {
@@ -16,44 +22,56 @@
 }
 else
 {
-    <table class="table">
+    //Tabla
+    <div class="custom-card mt-3">
+    <table class="table custom-table">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Tipo de accesorio</th>
-                <th>Descripción</th>
-                <th>Foto</th>
-                <th></th>
-                <th></th>
+                <th class="custom-th rounded-m-l">Nombre</th>
+                <th class="custom-th">Tipo de accesorio</th>
+                <th class="custom-th">Descripción</th>
+                <th class="custom-th">Foto</th>
+                <th class="custom-th rounded-m-r">Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var accesorio in accesorios)
             {
                 <tr>
-                    <td>@accesorio.Nombre</td>
-                    <td>@accesorio.TipoDeAccesorio.Nombre</td>
-                    <td>@accesorio.Descripcion</td>
-                    <td>
+                    <td class="custom-td">@accesorio.Nombre</td>
+                    <td class="custom-td">@accesorio.TipoDeAccesorio.Nombre</td>
+                    <td class="custom-td">@accesorio.Descripcion</td>
+                    <td class="custom-td">
                         <div>
-                            <img style="width:200px" src="@accesorio.UrlFoto" />
+                            <img style="width:100px;object-fit:cover;height:100px;overflow:hidden;border-radius:20px;" src="@accesorio.UrlFoto" />
                         </div>
                     </td>
-                    <td>
-                        <button class="btn btn-primary" @onclick="() => MoveToUpdate(accesorio.Id)">Editar</button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" @onclick="() => ConfirmarEliminarAccesorio(accesorio.Id)">Eliminar</button>
+                    <td class="d-flex gap-2 custom-td">
+                        <button class="btn-editar btn-icon btn btn-primary" @onclick="() => MoveToUpdate(accesorio.Id)"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button class="btn-eliminar btn-icon btn btn-danger" @onclick="() => ConfirmarEliminarAccesorio(accesorio.Id)"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+    </div>
+    //PAGINACION
+    <div class="mt-3 mb-3 d-flex justify-content-between">
+        <button class="btn-agregar btn-icon" @onclick="@(pageable.First ? null : () => OnChangePage(pageable.Pageable.PageNumber - 1))">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <span>Página @(pageable.Pageable.PageNumber + 1) de @pageable.TotalPages</span>
+        <button class="btn-agregar btn-icon" @onclick="@(pageable.Last ? null : () => OnChangePage(pageable.Pageable.PageNumber + 1))">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
 }
 
 @code {
     private List<Accesorio> accesorios;
+    private ContentResponse pageable;
     private string errorMessage;
+    private string nombreBuscar = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -61,6 +79,7 @@ else
         {
             var res_accesorios = await accesorioService.GetAccesorios();
             accesorios = res_accesorios.Content;
+            pageable = res_accesorios;
         }
         catch (Exception ex)
         {
@@ -97,5 +116,39 @@ else
     private void MoveToUpdate(int id)
     {
         navigationManager.NavigateTo($"/accesorios/editar/{id}");
+    }
+
+    //Cambiar de pagina
+
+    private async void OnChangePage(int page)
+    {
+        try
+        {
+            var res_accesorios = await accesorioService.GetAccesorios(page, 5, nombreBuscar);
+            accesorios = res_accesorios.Content;
+            pageable = res_accesorios;
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+            StateHasChanged();
+        }
+    }
+
+    private async void BuscarAccesorios()
+    {
+        try
+        {
+            var res_accesorios = await accesorioService.GetAccesorios(0, 5, nombreBuscar);
+            accesorios = res_accesorios.Content;
+            pageable = res_accesorios;
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+            StateHasChanged();
+        }
     }
 }
