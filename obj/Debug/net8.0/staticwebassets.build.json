@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "E7wKyv0jteq0C1no1yzsqGdYYzu5uEDSD/pr76WshTA=",
+  "Hash": "81ehTeoqeiT7VgC7Li3NUD7CZcsCgtbpj86Cm92OzKQ=",
   "Source": "AccesoriosApp",
   "BasePath": "_content/AccesoriosApp",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\flores.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\img\\login.jpg",
+      "SourceId": "AccesoriosApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "BasePath": "_content/AccesoriosApp",
+      "RelativePath": "img/login.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\login.jpg"
     }
   ]
 }

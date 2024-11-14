@@ -103,7 +103,7 @@
 }
 
 .btn-inicio {
-    background: #347928;
+    background: #006d77;
     color: white; /* Texto blanco */
     border: none; /* Sin borde */
     padding: 10px 20px; /* Espaciado interno */
@@ -113,11 +113,11 @@
     border-radius: 5px;
 }
 
-.btn-inicio:hover {
-    background-color: #45a049; /* Cambia el color de fondo en hover */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Añade sombra en hover */
-    transform: scale(1.05); /* Efecto de escala */
-}
+    .btn-inicio:hover {
+        background-color: #83c5be; /* Cambia el color de fondo en hover */
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Añade sombra en hover */
+        transform: scale(1.05); /* Efecto de escala */
+    }
 
 .btn-agregar {
     background: #006daa;

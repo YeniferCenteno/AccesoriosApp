@@ -14,6 +14,11 @@
     <button class="btn-agregar btn-primary px-4 fw-normal" @onclick="() => BuscarAccesorios()">Buscar</button>
 </div>
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-warning">@errorMessage</div>
+}
+
 <a href="/accesorios/guardar" class="btn-agregar btn btn-primary btn-icon"><i class="fa-solid fa-plus"></i></a>
 
 @if (accesorios == null)
@@ -143,12 +148,26 @@ else
             var res_accesorios = await accesorioService.GetAccesorios(0, 5, nombreBuscar);
             accesorios = res_accesorios.Content;
             pageable = res_accesorios;
+
+            // Verificar si no se encontró ningún accesorio
+            if (accesorios == null || !accesorios.Any())
+            {
+                accesorios = new List<Accesorio>();
+                errorMessage = "No se encontraron accesorios con el nombre especificado.";
+            }
+            else
+            {
+                errorMessage = string.Empty; // Limpiar el mensaje de error si hay resultados
+            }
+
             StateHasChanged();
         }
         catch (Exception ex)
         {
-            errorMessage = ex.Message;
+            await JSRuntime.InvokeVoidAsync("mostrarToast", "error", "No se encontraron accesorios con el nombre especificado.");
+            accesorios = new List<Accesorio>();
             StateHasChanged();
         }
     }
+
 }
