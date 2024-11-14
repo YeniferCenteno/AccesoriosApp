@@ -1,3 +1,8 @@
-.vs
-.bin
-.obj
+# Ignora archivos y carpetas de Visual Studio
+.vs/
+.bin/
+.obj/
+
+.vs/
+*.bin/
+*.obj/
