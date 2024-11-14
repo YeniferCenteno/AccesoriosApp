@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "njeDzkZ7oToIBd5nST5MPqqYLZV56HQrouAU06s/JQo=",
+  "Hash": "7EJCwBquSbBasv7JITv1hId9p4xc89oIDB6ekxm1V64=",
   "Source": "AccesoriosApp",
   "BasePath": "_content/AccesoriosApp",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "AccesoriosApp\\wwwroot",
       "Source": "AccesoriosApp",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AccesoriosApp.styles.css",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AccesoriosApp.styles.css",
       "SourceId": "AccesoriosApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "AccesoriosApp.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\yenif\\source\\repos\\Modulos\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AccesoriosApp.styles.css"
+      "OriginalItemSpec": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AccesoriosApp.styles.css"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AccesoriosApp.bundle.scp.css",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AccesoriosApp.bundle.scp.css",
       "SourceId": "AccesoriosApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "AccesoriosApp.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\yenif\\source\\repos\\Modulos\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AccesoriosApp.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AccesoriosApp.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\app.css",
       "SourceId": "AccesoriosApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\acc.jfif",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\bootstrap\\acc.jfif",
       "SourceId": "AccesoriosApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "bootstrap/acc.jfif",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\acc.jfif"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "AccesoriosApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "AccesoriosApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\bootstrap\\logo.jfif",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\bootstrap\\logo.jfif",
       "SourceId": "AccesoriosApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "bootstrap/logo.jfif",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\logo.jfif"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\css\\style.css",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\css\\style.css",
       "SourceId": "AccesoriosApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\favicon.png",
       "SourceId": "AccesoriosApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\yenif\\source\\repos\\Modulos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\7280\\Downloads\\AccesoriosAPp Visual final\\AccesoriosApp\\wwwroot\\",
       "BasePath": "_content/AccesoriosApp",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
