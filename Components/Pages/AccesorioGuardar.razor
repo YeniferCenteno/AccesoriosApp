@@ -63,7 +63,8 @@
         // Cargar los tipos de accesorios desde la API
         try
         {
-            tiposDeAccesorios = await tipoDeAccesoriosService.GetTiposDeAccesorio();
+            var result  = await tipoDeAccesoriosService.GetTiposDeAccesorio();
+            tiposDeAccesorios = result.Content;
             StateHasChanged();
         }
         catch (Exception ex)
@@ -77,8 +78,9 @@
         if (foto != null)
         {
             // Aquí puedes subir la foto al servidor o convertirla en un formato adecuado
-            var buffer = new byte[foto.Size];
-            await foto.OpenReadStream().ReadAsync(buffer);
+            using var memoryStream = new MemoryStream();
+            await foto.OpenReadStream().CopyToAsync(memoryStream);
+            var buffer = memoryStream.ToArray();
 
             // Opcional: Puedes enviar los datos del accesorio y la foto a la API
             // Lógica para enviar accesorio y archivo a la API (HttpClient)
