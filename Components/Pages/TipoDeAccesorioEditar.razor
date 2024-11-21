@@ -1,0 +1,84 @@
+﻿@page "/tipoDeAccesorios/editar/{tipoDeAccesorioId}"
+@using AccesoriosApp.DTOs
+@using AccesoriosApp.Services
+@rendermode InteractiveServer
+@inject TipoDeAccesorioService tipoDeAccesorioService;
+@inject NavigationManager navigationManager
+
+<h3>Editar Tipo de Accesorio</h3>
+
+@if (tipoDeAccesorio == null)
+
+{
+    <p>Cargando tipo de accesorio...</p>
+}
+else
+{
+    <EditForm Model="tipoDeAccesorio" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <InputText id="nombre" class="form-control" @bind-Value="tipoDeAccesorio.Nombre" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <button class="btn btn-secondary" @onclick="Cancelar">Cancelar</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public string TipoDeAccesorioId { get; set; }
+
+    private TipoDeAccesorio tipoDeAccesorio = new TipoDeAccesorio();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Llamar al servicio para obtener el tipo de accesorio por su ID
+            tipoDeAccesorio = await tipoDeAccesorioService.GetTipoDeAccesorioById(Int32.Parse(TipoDeAccesorioId));
+
+            if (tipoDeAccesorio == null)
+            {
+                // Manejar el caso en el que no se encuentre el tipo de accesorio
+                navigationManager.NavigateTo("/tipoDeAccesorios");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Manejar errores
+            Console.WriteLine($"Error al cargar el tipo de accesorio: {ex.Message}");
+        }
+    }
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            // Llamar al servicio para editar el tipo de accesorio
+            var success = await tipoDeAccesorioService.EditTipoDeAccesorio(Int32.Parse(TipoDeAccesorioId), tipoDeAccesorio);
+            if (success)
+
+            {
+                navigationManager.NavigateTo("/tipoDeAccesorios");
+            }
+            else
+            {
+                // Manejar errores
+                Console.WriteLine("Error al editar el tipo de accesorio.");
+           }
+        }
+        catch (Exception ex)
+        {
+            // Manejar errores
+            Console.WriteLine($"Error al editar el tipo de accesorio: {ex.Message}");
+        }
+    }
+    private void Cancelar()
+    {
+
+        navigationManager.NavigateTo("/tipoDeAccesorios");
+
+    }
+}

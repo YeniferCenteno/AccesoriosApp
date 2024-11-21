@@ -45,15 +45,17 @@ else
                 <tr>
                     <td class="custom-td">@accesorio.Nombre</td>
                     <td class="custom-td">@accesorio.TipoDeAccesorio.Nombre</td>
-                    <td class="custom-td">@accesorio.Descripcion</td>
+                    <td style="width: 100px" class="custom-td">
+                            <p style="width: 100px;white-space: pre-line;">@accesorio.Descripcion</p>
+                    </td>
                     <td class="custom-td">
                         <div>
                             <img style="width:100px;object-fit:cover;height:100px;overflow:hidden;border-radius:20px;" src="@accesorio.UrlFoto" />
                         </div>
                     </td>
-                    <td class="d-flex gap-2 custom-td">
-                        <button class="btn-editar btn-icon btn btn-primary" @onclick="() => MoveToUpdate(accesorio.Id)"><i class="fa-regular fa-pen-to-square"></i></button>
-                        <button class="btn-eliminar btn-icon btn btn-danger" @onclick="() => ConfirmarEliminarAccesorio(accesorio.Id)"><i class="fa-solid fa-trash"></i></button>
+                    <td class="gap-2 custom-td">
+                        <button class="btn-editar btn-icon" @onclick="() => MoveToUpdate(accesorio.Id)"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button class="btn-eliminar btn-icon" @onclick="() => ConfirmarEliminarAccesorio(accesorio.Id)"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
             }

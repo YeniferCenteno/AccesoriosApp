@@ -68,10 +68,16 @@
 
 
 /* Contenedor de pantalla completa */
+    *{
+        margin:0;
+        padding:0;
+    }
+
 .full-screen {
     width: 70%;
     height: 70%;
     display: flex;
+    overflow-x: hidden;
     justify-content: center;
     align-items: flex-start; /*Alinea hacia la parte superior */
     margin-top: 60%; /* Ajusta este valor para bajar el cuadro */
@@ -207,9 +213,12 @@
 }
 
 .custom-table {
-    display: table;
+    max-width: 100%;
     width: 100%;
     margin-bottom: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+    word-break: break-word;
     vertical-align: top;
     border-color: #e5e7eb; /* Border gray-200 */
     color: #64748b; /* Text-slate-500 */
